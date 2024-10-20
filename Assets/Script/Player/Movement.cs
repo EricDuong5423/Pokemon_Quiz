@@ -3,14 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Movement : MonoBehaviour
 {
-    // Start is called before the first frame update
     public float movementSpeed;
     private Boolean isMoving;
     private Vector2 input;
     private Animator animator;
+    public LayerMask solidObjLayer;
+    public LayerMask grassLayer;
+
 
     private void Awake()
     {
@@ -40,7 +43,9 @@ public class Movement : MonoBehaviour
                 targetPosition.x += input.x;
                 targetPosition.y += input.y;
 
-                StartCoroutine(Move(targetPosition));
+                if (IsWalkAble(targetPosition)) {
+                    StartCoroutine(Move(targetPosition));
+                }
             }
         }
         animator.SetBool("isMoving", isMoving);
@@ -58,5 +63,29 @@ public class Movement : MonoBehaviour
         transform.position = targetPos;
 
         isMoving = false;
+        checkForEncounter(targetPos);
+    }
+
+    //Check collision with something that can't not pass
+    private bool IsWalkAble(Vector3 targetPos)
+    {
+        if(Physics2D.OverlapCircle(targetPos, 0.1f, solidObjLayer) != null)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    private bool checkForEncounter(Vector3 targetPos)
+    {
+        if (Physics2D.OverlapCircle(targetPos, 0.1f, grassLayer) != null)
+        {
+            if(Random.Range(1, 101) <= 10)
+            {
+                Debug.Log("Battle fight");
+                return true;
+            }
+        }
+        return false;
     }
 }
