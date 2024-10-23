@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class Monster
 { 
-    MonsterBase _base;
-    int level;
+    public MonsterBase Base{get; set;}
+    public int Level{get; set;}
 
     public int HP { get; set; }
     public List<Move> Moves { get; set; } 
     public List<Question> Questions { get; set; }
 
-    public Monster(MonsterBase _base, int level)
+    public Monster(MonsterBase pBase, int pLevel)
     {
-        this._base = _base;
-        this.level = level;
-        HP = _base.MaxHP;
+        this.Base = pBase;
+        this.Level = pLevel;
+        HP = MaxHP;
 
         //Add moves
         Moves = new List<Move>();
-        foreach (var move in _base.LearnAbleMoves)
+        foreach (var move in Base.LearnAbleMoves)
         {
-            if(move.Level <= this.level)
+            if(move.Level <= this.Level)
             {
                 Moves.Add(new Move(move.Base));
             }
@@ -33,19 +33,19 @@ public class Monster
         }
 
         Questions = new List<Question>();
-        foreach (var question in _base.LearnAbleQuestions)
+        foreach (var question in Base.LearnAbleQuestions)
         {
-            if(question.Level <= this.level)
+            if(question.Level <= this.Level)
             {
                 Questions.Add(new Question(question.Base));
             }
         }
     }
 
-    public int Attack {get { return Mathf.FloorToInt((_base.Attack * level) / 100f) + 5; } }
-    public int Defense { get { return Mathf.FloorToInt((_base.Defense * level) / 100f) + 5; } }
-    public int MaxHP { get { return Mathf.FloorToInt((_base.MaxHP * level) / 100f) + 10; } }
-    public int SpAttack { get { return Mathf.FloorToInt((_base.SpAttack * level) / 100f) + 5; } }
-    public int SpDefense { get { return Mathf.FloorToInt((_base.SpDefense * level) / 100f) + 5; } }
-    public int Speed { get { return Mathf.FloorToInt((_base.Speed * level) / 100f) + 5; } }
+    public int Attack {get { return Mathf.FloorToInt((Base.Attack * Level) / 100f) + 5; } }
+    public int Defense { get { return Mathf.FloorToInt((Base.Defense * Level) / 100f) + 5; } }
+    public int MaxHP { get { return Mathf.FloorToInt((Base.MaxHP * Level) / 100f) + 10; } }
+    public int SpAttack { get { return Mathf.FloorToInt((Base.SpAttack * Level) / 100f) + 5; } }
+    public int SpDefense { get { return Mathf.FloorToInt((Base.SpDefense * Level) / 100f) + 5; } }
+    public int Speed { get { return Mathf.FloorToInt((Base.Speed * Level) / 100f) + 5; } }
 }
