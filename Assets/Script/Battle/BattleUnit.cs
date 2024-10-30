@@ -8,17 +8,17 @@ public class BattleUnit : MonoBehaviour
     [SerializeField] MonsterBase _base;
     [SerializeField] int level;
     [SerializeField] bool isPlayer;
-    [SerializeField] Sprite playerSprite;
 
     public Monster Monster {get; set;}
 
     public void Setup(){
         Monster = new Monster(_base, level);
         if(isPlayer){
-            GetComponent<Image>().sprite = playerSprite;
+            GetComponent<Image>().sprite = Monster.Base.BackSprite;
         }
         else{
             GetComponent<Image>().sprite = Monster.Base.FrontSprite;
+            
         }
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2888b9c763a1c9e4197f6c3777c643ba, type: 3}
   m_Name: MAsadthu
   m_EditorClassIdentifier: 
-  monsterName: 
+  monsterName: "MA s\xE1d th\u1EE7"
   description: "Con qu\xE1i v\u1EADt s\u1EED d\u1EE5ng MAyone \u0111\u1EC3 ch\xE9m
     k\u1EBB th\xF9"
   frontSprite: {fileID: 21300000, guid: 0f37bf3cf5680a64d863b5f155b2a597, type: 3}

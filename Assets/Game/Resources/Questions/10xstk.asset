@@ -15,7 +15,7 @@ MonoBehaviour:
   question: "Ai c\xF3 10 \u0111i\u1EC3m xstk"
   questionType: 1
   answers:
-  - correctAnswer: 1
+  - correctAnswer: 0
     answer: "MA s\xE1d th\u1EE7"
   - correctAnswer: 0
     answer: "Kh\xE1nh t\u1EADt"
