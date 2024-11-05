@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6a823990ef18e45851ba96f04a5d47, type: 3}
-  m_Name: Tackle
+  m_Script: {fileID: 11500000, guid: eb7c93ce068d0dd46807bcdaa749b953, type: 3}
+  m_Name: Question
   m_EditorClassIdentifier: 
-  moveName: Tackle
-  description: 
-  type: 1
-  power: 40
-  accuracy: 100
-  pp: 20
+  question: 
+  questionType: 0
+  answers: []
